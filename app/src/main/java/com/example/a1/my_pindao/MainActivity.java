@@ -156,12 +156,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         }
                     }
                 });
-//版本跟新
+               //版本跟新
                 wifi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (isChecked){
+                            //进度条
                             progressDialog = new ProgressDialog(MainActivity.this);
+                            //弹出dialog
                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             builder.setTitle("版本更新").setMessage("现在检测到新版本，是否更新?").setNegativeButton("取消", null).setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                 @Override
@@ -242,6 +244,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onLoading(long total, long current, boolean isDownloading) {
                 //当前进度和文件总大小
                 Log.i("JAVA","current："+ current +"，total："+total);
+                //下载进度条
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 progressDialog.setMessage("下载中");
                 progressDialog.show();
